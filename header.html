@@ -1,0 +1,21 @@
+<div id="nav-bar">
+  <h3>WORKFORCE MANAGEMENT</h3>
+  <div id="dropdown">
+    <div>
+      <button type="button" id="order" ng-click="dropdown('order')">
+        ORDER TYPE
+      </button>
+      <ul ng-style="getDropdownStyle('order')">
+        <li ng-repeat="item in items">{{item}}</li>
+      </ul>
+    </div>
+    <div>
+      <button type="button" id="depot" ng-click="dropdown('depot')">
+        DEPOT
+      </button>
+      <ul ng-style="getDropdownStyle('depot')">
+        <li ng-repeat="depot in depots">{{depot}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
