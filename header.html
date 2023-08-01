@@ -1,20 +1,40 @@
-<div id="nav-bar">
-  <h3>WORKFORCE MANAGEMENT</h3>
+<div id="nav-bar" ng-style="bgcolors[mylocation]">
+  <span id="title">WORKFORCE MANAGEMENT</span>
   <div id="dropdown">
     <div>
-      <button type="button" id="order" ng-click="dropdown('order')">
-        ORDER TYPE
+      <button
+        type="button"
+        id="order"
+        ng-click="dropdown('order')"
+        ng-style="btncolors[mylocation]"
+        ng-init="title_order='ORDER TYPE'"
+      >
+        {{title_order}}
+        <i class="lui-icon lui-icon--triangle-bottom"></i>
       </button>
       <ul ng-style="getDropdownStyle('order')">
         <li ng-repeat="item in items">{{item}}</li>
       </ul>
     </div>
-    <div>
-      <button type="button" id="depot" ng-click="dropdown('depot')">
-        DEPOT
+    <div ng-style="bgcolors[mylocation]">
+      <button
+        type="button"
+        id="depot"
+        ng-click="dropdown('depot')"
+        ng-style="btncolors[mylocation]"
+        ng-init="value='DEPOT'"
+      >
+        {{value}}
+        <i class="lui-icon lui-icon--triangle-bottom"></i>
       </button>
       <ul ng-style="getDropdownStyle('depot')">
-        <li ng-repeat="depot in depots">{{depot}}</li>
+        <li
+          ng-repeat="depot in depots"
+          id="{{depot}}"
+          ng-click="getOption('depot',depot)"
+        >
+          {{depot}}
+        </li>
       </ul>
     </div>
   </div>

@@ -1,18 +1,34 @@
-body {
-  width: 100%;
-  height: 100%;
+* {
+  font-family: poppins;
+  box-sizing: border-box;
   user-select: none;
 }
+
 #nav-bar {
-  padding: 20px;
-  background-color: khaki;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+#nav-bar span {
+  font-weight: 400;
+  font-size: 20px;
+}
+#nav-bar button {
+  outline: none;
+  border: none;
+  padding: 7px;
+  color: white;
+}
+#nav-bar button i {
+  font-size: 11px;
 }
 #dropdown {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   position: relative;
 }
 #dropdown div {
@@ -21,31 +37,38 @@ body {
 #dropdown ul {
   position: absolute;
   z-index: 1;
-  background-color: khaki;
+  border-radius: 5px;
 }
 
 #dropdown ul li {
   list-style: none;
-  padding: 20px;
+  padding: 12px;
+  line-height: 20px;
+  padding: 10px 20px 10px 20px;
 }
 #dropdown ul li:hover {
-  background-color: burlywood;
+  background-color: #77b62a;
 }
 #footer {
   padding: 20px;
-  background-color: grey;
-  height: 100px;
+  background-color: #bfcace;
+  height: 150px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 #route a {
   text-decoration: none;
-  color: white;
+  color: #666;
   padding-right: 50px;
+  font-weight: 500;
+}
+#route a.active,
+#route a:hover {
+  color: black;
 }
 .main-content {
   width: 100%;
@@ -54,24 +77,40 @@ body {
   display: flex;
 }
 #side-bar {
-  width: 100%;
+  width: 230px;
   height: 100%;
-  padding: 20px;
+  padding: 20px 0px 20px 0px;
 }
 #side-bar li {
   list-style: none;
   height: 150px;
 }
 #side-bar li a {
-  border-left: 5px solid khaki;
+  /* border-left: 5px solid khaki; */
   padding: 3px;
   text-decoration: none;
   color: black;
+}
+
+#dashboard {
+  border-left: 6px solid #ff9600;
+}
+#openorders {
+  border-left: 6px solid #00aeef;
+}
+#employeeanalysis {
+  border-left: 6px solid #b1da80;
+}
+#routeoptimization {
+  border-left: 6px solid #92278f;
+}
+#shiftanalysis {
+  border-left: 6px solid #464646;
 }
 .content {
   width: 80%;
   height: 100%;
   position: absolute;
-  left: 20%;
+  left: 230px;
   padding: 20px;
 }

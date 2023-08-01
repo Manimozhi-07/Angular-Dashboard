@@ -74,7 +74,49 @@ require(["js/qlik"], function (qlik) {
 
   workforceMgmt.controller("mainCtrl", [
     "$scope",
-    function ($scope) {
+    "$location",
+    function ($scope, $location) {
+      $scope.$on("$routeChangeStart", function () {
+        $scope.mylocation = $location.path();
+        console.log($scope.mylocation);
+      });
+
+      $scope.bgcolors = {
+        "/dashboard": { backgroundColor: "#ff9600" },
+        "/openOrders": { backgroundColor: "#00aeef" },
+        "/employeeAnalysis": { backgroundColor: "#b1da80" },
+        "/routeOptimization": { backgroundColor: " #92278f" },
+        "/shiftAnalysis": { backgroundColor: "#464646 " },
+      };
+      $scope.btncolors = {
+        "/dashboard": {
+          backgroundColor: " #e28500",
+          border: "1px solid  #c97600 ",
+        },
+        "/openOrders": {
+          backgroundColor: "#0094cc",
+          border: "1px solid  #0081b2 ",
+        },
+        "/employeeAnalysis": {
+          backgroundColor: "#95b76c",
+          border: "1px solid  #748e54",
+        },
+        "/routeOptimization": {
+          backgroundColor: "  #7a2177",
+          border: "1px solid  #601a5e",
+        },
+        "/shiftAnalysis": {
+          backgroundColor: "#3a3a3a ",
+          border: "1px solid  #2d2d2d ",
+        },
+      };
+      $scope.getOption = function (type, option) {
+        console.log(option);
+        console.log(type);
+        var value = "title_" + type;
+
+        $scope.value = option;
+      };
       $scope.tabs = [
         "dashboard",
         "openOrders",
@@ -107,8 +149,16 @@ require(["js/qlik"], function (qlik) {
 
       $scope.getDropdownStyle = function (type) {
         return $scope.isVisible(type)
-          ? { display: "block" }
-          : { display: "none" };
+          ? {
+              display: "block",
+              backgroundColor:
+                $scope.btncolors[$scope.mylocation].backgroundColor,
+            }
+          : {
+              display: "none",
+              backgroundColor:
+                $scope.btncolors[$scope.mylocation].backgroundColor,
+            };
       };
     },
   ]);

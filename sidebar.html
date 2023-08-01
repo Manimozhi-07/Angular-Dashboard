@@ -1,7 +1,9 @@
 <div id="side-bar">
   <ul>
     <li ng-repeat="tab in tabs">
-      <a href="#/{{tab}}">{{tab|uppercase}}</a>
+      <a href="#/{{tab}}" id="{{tab|lowercase}}" ng-switch="check(mylocation)"
+        >{{tab|uppercase}}</a
+      >
     </li>
   </ul>
 </div>

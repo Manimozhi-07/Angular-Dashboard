@@ -1,11 +1,16 @@
 <div id="footer">
-  <h3>WORKFORCE MANAGEMENT</h3>
+  <h2>WORKFORCE MANAGEMENT</h2>
   <div id="route">
     <!-- <a href="#/dashboard">DASHBOARD</a>
     <a href="#/openOrders">OPEN ORDERS</a>
     <a href="#/employeeAnalysis">EMPLOYEE ANALYSIS</a>
     <a href="#/routeOptimization">ROUTE OPTIMIZATION</a>
     <a href="#/shiftAnalysis">SHIFT ANALYSIS</a> -->
-    <a href="#/{{tab}}" ng-repeat="tab in tabs">{{tab |uppercase}}</a>
+    <a
+      href="#/{{tab}}"
+      ng-repeat="tab in tabs"
+      ng-class="{'active':(mylocation==='/'+tab)}"
+      >{{tab |uppercase}}</a
+    >
   </div>
 </div>
