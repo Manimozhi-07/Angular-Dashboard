@@ -1,9 +1,20 @@
 <div id="side-bar">
   <ul>
-    <li ng-repeat="tab in tabs">
-      <a href="#/{{tab}}" id="{{tab|lowercase}}" ng-switch="check(mylocation)"
-        >{{tab|uppercase}}</a
-      >
+    <li
+      ng-repeat="tab in tabs"
+      ng-class="{'highlight':(mylocation ==='/'+tab.split(' ').join(''))}"
+      ng-click="go('/'+tab.split(' ').join(''))"
+    >
+      <div id="ref">
+        <span id="{{tab.split(' ').join('')|lowercase}}"
+          >{{tab|uppercase}}</span
+        >
+        <i
+          class="lui-icon lui-icon--arrow-right"
+          ng-if="!(mylocation ==='/'+tab.split(' ').join(''))"
+        ></i>
+      </div>
+      <div id="data"></div>
     </li>
   </ul>
 </div>

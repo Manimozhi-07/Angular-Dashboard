@@ -110,19 +110,34 @@ require(["js/qlik"], function (qlik) {
           border: "1px solid  #2d2d2d ",
         },
       };
+      $scope.title_order = "ORDER TYPE";
+      $scope.title_depot = "DEPOT";
       $scope.getOption = function (type, option) {
-        console.log(option);
         console.log(type);
-        var value = "title_" + type;
-
-        $scope.value = option;
+        console.log(option);
+        if (type === "order") {
+          $scope.title_order = option;
+          $scope.visibleDropdown = null;
+          console.log($scope.title_order);
+        } else {
+          $scope.title_depot = option;
+          $scope.visibleDropdown = null;
+          console.log($scope.title_depot);
+        }
+      };
+      $scope.go = function (path) {
+        if ($scope.visibleDropdown != null) {
+          $scope.visibleDropdown = null;
+        }
+        console.log(path);
+        $location.path(path);
       };
       $scope.tabs = [
         "dashboard",
-        "openOrders",
-        "employeeAnalysis",
-        "routeOptimization",
-        "shiftAnalysis",
+        "open Orders",
+        "employee Analysis",
+        "route Optimization",
+        "shift Analysis",
       ];
       $scope.items = [
         "Emergency",

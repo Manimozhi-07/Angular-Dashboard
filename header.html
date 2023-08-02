@@ -7,13 +7,19 @@
         id="order"
         ng-click="dropdown('order')"
         ng-style="btncolors[mylocation]"
-        ng-init="title_order='ORDER TYPE'"
       >
         {{title_order}}
         <i class="lui-icon lui-icon--triangle-bottom"></i>
       </button>
       <ul ng-style="getDropdownStyle('order')">
-        <li ng-repeat="item in items">{{item}}</li>
+        <li
+          ng-repeat="item in items"
+          id="{{item|lowercase}}"
+          ng-click="getOption('order',item)"
+          ng-class="{'act':(title_order === item)}"
+        >
+          {{item}}
+        </li>
       </ul>
     </div>
     <div ng-style="bgcolors[mylocation]">
@@ -22,16 +28,16 @@
         id="depot"
         ng-click="dropdown('depot')"
         ng-style="btncolors[mylocation]"
-        ng-init="value='DEPOT'"
       >
-        {{value}}
+        {{title_depot}}
         <i class="lui-icon lui-icon--triangle-bottom"></i>
       </button>
       <ul ng-style="getDropdownStyle('depot')">
         <li
           ng-repeat="depot in depots"
-          id="{{depot}}"
+          id="{{depot|lowercase}}"
           ng-click="getOption('depot',depot)"
+          ng-class="{'act':(title_depot === depot)}"
         >
           {{depot}}
         </li>

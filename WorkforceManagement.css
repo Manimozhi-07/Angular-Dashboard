@@ -18,8 +18,10 @@
 #nav-bar button {
   outline: none;
   border: none;
-  padding: 7px;
+  padding: 5px;
   color: white;
+
+  font-size: 13px;
 }
 #nav-bar button i {
   font-size: 11px;
@@ -32,34 +34,46 @@
   position: relative;
 }
 #dropdown div {
-  padding: 0px 20px 0px 20px;
+  padding: 0px 10px 0px 10px;
 }
 #dropdown ul {
   position: absolute;
   z-index: 1;
   border-radius: 5px;
 }
-
+#dropdown ul li:first-child:hover,
+#dropdown ul li:first-child.act {
+  border-radius: 5px 5px 0 0;
+}
+#dropdown ul li:last-child:hover,
+#dropdown ul li:last-child.act {
+  border-radius: 0 0 5px 5px;
+}
 #dropdown ul li {
   list-style: none;
   padding: 12px;
-  line-height: 20px;
+  line-height: 12px;
   padding: 10px 20px 10px 20px;
 }
-#dropdown ul li:hover {
+#dropdown ul li:hover,
+#dropdown ul li.act {
   background-color: #77b62a;
 }
+
 #footer {
   padding: 20px;
   background-color: #bfcace;
-  height: 150px;
-
+  height: 200px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 }
-
+#footer span {
+  color: black;
+}
 #route a {
   text-decoration: none;
   color: #666;
@@ -72,24 +86,44 @@
 }
 .main-content {
   width: 100%;
-  height: 800px;
+  height: 1000px;
   position: relative;
   display: flex;
 }
 #side-bar {
-  width: 230px;
-  height: 100%;
-  padding: 20px 0px 20px 0px;
+  width: 260px;
+
+  background-color: #e8f1f6;
+}
+
+#ref {
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px 10px 10px 0px;
+  font-size: 15px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#ref i {
+  font-size: 14px;
 }
 #side-bar li {
   list-style: none;
-  height: 150px;
+  height: 200px;
+  padding: 10px 0px 10px 0px;
 }
-#side-bar li a {
+#side-bar li:hover,
+#side-bar li.highlight {
+  background-color: white;
+}
+#side-bar li span {
   /* border-left: 5px solid khaki; */
-  padding: 3px;
-  text-decoration: none;
-  color: black;
+  padding: 5px;
+
+  color: #464646;
 }
 
 #dashboard {
@@ -108,9 +142,14 @@
   border-left: 6px solid #464646;
 }
 .content {
-  width: 80%;
+  width: calc(100% - 260px);
   height: 100%;
   position: absolute;
-  left: 230px;
-  padding: 20px;
+  left: 260px;
+  padding: 10px 25px 10px 25px;
+}
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #666;
 }

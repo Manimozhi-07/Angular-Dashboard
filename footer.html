@@ -1,5 +1,5 @@
 <div id="footer">
-  <h2>WORKFORCE MANAGEMENT</h2>
+  <span>WORKFORCE MANAGEMENT</span>
   <div id="route">
     <!-- <a href="#/dashboard">DASHBOARD</a>
     <a href="#/openOrders">OPEN ORDERS</a>
@@ -7,9 +7,9 @@
     <a href="#/routeOptimization">ROUTE OPTIMIZATION</a>
     <a href="#/shiftAnalysis">SHIFT ANALYSIS</a> -->
     <a
-      href="#/{{tab}}"
+      href="#/{{tab.split(' ').join('')}}"
       ng-repeat="tab in tabs"
-      ng-class="{'active':(mylocation==='/'+tab)}"
+      ng-class="{'active':(mylocation==='/'+tab.split(' ').join(''))}"
       >{{tab |uppercase}}</a
     >
   </div>
